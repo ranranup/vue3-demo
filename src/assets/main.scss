@@ -1,0 +1,12 @@
+@import './base.css';
+#app {
+  padding: 20px;
+  ul {
+    max-height: calc(100vh - 88px);
+    overflow: auto;
+  }
+  .memo {
+    padding-left: 20px;
+    font-weight: bolder;
+  }
+}
