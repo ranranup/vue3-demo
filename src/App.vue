@@ -1,38 +1,25 @@
 <template>
   <div>
-    <AddTodo @add="handleAdd" />
-    <ul>
-      <TodoItem
-        v-for="(el, $index) in arr"
-        :key="el.name"
-        :data="el"
-        @complete="handleComplete(el)"
-        @del="handleDel($index)"
-      />
-    </ul>
-    <div class="memo">待完成事项数量：{{ count }}</div>
+    <my-button-group type="text">
+      <my-button>测试1</my-button>
+      <my-button>测试2</my-button>
+      <my-button>测试3</my-button>
+    </my-button-group>
+    <my-button-group type="primary">
+      <my-button>测试1</my-button>
+      <my-button>测试2</my-button>
+      <my-button type="danger">测试3</my-button>
+    </my-button-group>
+    <my-button-group>
+      <my-button>测试1</my-button>
+      <my-button>测试2</my-button>
+      <my-button>测试3</my-button>
+    </my-button-group>
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, computed } from 'vue';
-import AddTodo from '@/views/add-todo.vue';
-import TodoItem from '@/views/todo-item.vue';
-import type { IItem } from './interface';
-
-const arr: IItem[] = reactive([]);
-
-const count = computed(() => arr.filter((el) => el.status === 0).length);
-
-const handleAdd = (val: string) => {
-  arr.push({ name: val, status: 0 });
-};
-
-const handleComplete = (el: IItem) => {
-  el.status = 1;
-};
-const handleDel = (index: number) => {
-  arr.splice(index, 1);
-};
+import MyButtonGroup from '@/views/demo2/my-button-group.vue';
+import MyButton from '@/views/demo2/my-button.vue';
 </script>
 
 <style scoped></style>

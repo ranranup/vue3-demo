@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 100,
+  "eslint.options": {
+    "prettier/prettier": "error"
+  },
+  "files.eol": "\n"
+}
