@@ -6,9 +6,10 @@
 
 <script setup lang="ts">
 import { provide, computed } from 'vue';
+import { type IType } from '@/interface';
 import { myButtonGroupKey } from '@/config/keys';
 
-const props = defineProps<{ type?: 'primary' | 'text' | 'danger' }>();
+const props = defineProps<{ type?: IType }>();
 const type = computed(() => props.type || 'primary');
 provide(myButtonGroupKey, { type: type.value });
 </script>

@@ -6,15 +6,12 @@
 
 <script setup lang="ts">
 import { inject, computed } from 'vue';
+import { type IType } from '@/interface';
 import { myButtonGroupKey } from '@/config/keys';
-const props = defineProps<{ type?: 'primary' | 'text' | 'danger' }>();
+const props = defineProps<{ type?: IType }>();
 const injectType = inject(myButtonGroupKey);
 const type = computed(() => props.type || injectType?.type || 'primary');
-const btnClass = computed(() => {
-  return { primary: 'my-button-primary', text: 'my-button-text', danger: 'my-button-danger' }[
-    type.value
-  ];
-});
+const btnClass = computed(() => `my-button-${type.value}`);
 </script>
 <style scoped lang="scss">
 .my-button {
