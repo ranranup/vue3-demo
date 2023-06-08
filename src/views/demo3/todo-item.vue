@@ -6,8 +6,8 @@
   </li>
 </template>
 <script setup lang="ts">
-import type { IItem } from '@/interface';
 import { computed } from 'vue';
+import { IItem } from '../../interface';
 // const props = defineProps<{ name: String; status: number }>();
 const props = defineProps<{ data: IItem }>();
 
