@@ -14,7 +14,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, ref, watch, watchEffect } from 'vue';
+import { reactive, ref, watchEffect } from 'vue';
 import AddTodo from './add-todo.vue';
 import TodoItem from './todo-item.vue';
 import type { IItem } from '../../interface';
@@ -24,7 +24,6 @@ let arr: IItem[] = reactive(sessionStorageArr || []);
 const handleAdd = (val: string) => {
   arr.push({ name: val, status: 0 });
 };
-
 const handleComplete = (el: IItem) => {
   el.status = 1;
 };
