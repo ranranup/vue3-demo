@@ -14,14 +14,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, computed } from 'vue';
+import { reactive, ref, watch, watchEffect } from 'vue';
 import AddTodo from './add-todo.vue';
 import TodoItem from './todo-item.vue';
-import type { IItem } from '@/interface';
-
-const arr: IItem[] = reactive([]);
-
-const count = computed(() => arr.filter((el) => el.status === 0).length);
+import type { IItem } from '../../interface';
+const sessionStorageArr = JSON.parse(sessionStorage.getItem('arr') as string) || [];
+let arr: IItem[] = reactive(sessionStorageArr || []);
 
 const handleAdd = (val: string) => {
   arr.push({ name: val, status: 0 });
@@ -33,6 +31,16 @@ const handleComplete = (el: IItem) => {
 const handleDel = (index: number) => {
   arr.splice(index, 1);
 };
+let count = ref(0);
+
+// watch(arr, () => {
+//   sessionStorage.setItem('arr', JSON.stringify(arr));
+//   count.value = arr.filter((el) => el.status === 0).length;
+// });
+watchEffect(() => {
+  sessionStorage.setItem('arr', JSON.stringify(arr));
+  count.value = arr.filter((el) => el.status === 0).length;
+});
 </script>
 
 <style scoped></style>
