@@ -1,30 +1,10 @@
+<script setup lang="ts">
+import Hooks from '@/views/demo5/index.vue';
+import VueRouterDemo from '@/views/demo4/index.vue';
+</script>
 <template>
   <div>
-    <p>
-      <span v-for="menu in menuList">
-        <router-link :to="menu.value">{{ menu.name }}</router-link>
-      </span>
-    </p>
-    <router-view></router-view>
+    <Hooks></Hooks>
+    <VueRouterDemo></VueRouterDemo>
   </div>
 </template>
-<script setup lang="ts">
-type TMenu = {
-  name: string;
-  value: string;
-  code?: string;
-};
-import { reactive } from 'vue';
-const menuList = reactive<TMenu[]>([
-  { name: '主页', value: '/' },
-  { name: '列表页', value: '/todo-list' },
-  { name: '按钮组', value: '/button-group' },
-  { name: '测试组', value: '/test' }
-]);
-</script>
-
-<style scoped>
-span {
-  margin-right: 10px;
-}
-</style>

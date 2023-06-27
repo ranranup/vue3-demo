@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <my-button-group type="text">
-      <my-button>测试1</my-button>
-      <my-button>测试2</my-button>
-      <my-button>测试3</my-button>
-    </my-button-group>
-    <my-button-group type="primary">
-      <my-button>测试1</my-button>
-      <my-button>测试2</my-button>
-      <my-button type="danger">测试3</my-button>
-    </my-button-group>
-    <my-button-group>
-      <my-button>测试1</my-button>
-      <my-button>测试2</my-button>
-      <my-button>测试3</my-button>
-    </my-button-group>
-  </div>
+  <my-button-group type="text">
+    <my-button>测试1</my-button>
+    <my-button>测试2</my-button>
+    <my-button>测试3</my-button>
+  </my-button-group>
+  <my-button-group type="primary">
+    <my-button>测试1</my-button>
+    <my-button>测试2</my-button>
+    <my-button type="danger">测试3</my-button>
+  </my-button-group>
+  <my-button-group>
+    <my-button>测试1</my-button>
+    <my-button>测试2</my-button>
+    <my-button>测试3</my-button>
+  </my-button-group>
 </template>
 
 <script setup lang="ts">

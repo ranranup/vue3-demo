@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <AddTodo @add="handleAdd" />
-    <ul>
-      <TodoItem
-        v-for="(el, $index) in arr"
-        :key="el.name"
-        :data="el"
-        @complete="handleComplete(el)"
-        @del="handleDel($index)"
-      />
-    </ul>
-    <div class="memo">待完成事项数量：{{ count }}</div>
-  </div>
+  <AddTodo @add="handleAdd" />
+  <ul>
+    <TodoItem
+      v-for="(el, $index) in arr"
+      :key="el.name"
+      :data="el"
+      @complete="handleComplete(el)"
+      @del="handleDel($index)"
+    />
+  </ul>
+  <div class="memo">待完成事项数量：{{ count }}</div>
 </template>
 <script setup lang="ts">
 import { reactive, computed } from 'vue';
