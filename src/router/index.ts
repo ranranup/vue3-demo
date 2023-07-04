@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-const authorities: string[] = ['DATA', 'FLOW'];
+import { useUserStore } from '@/stores/user';
+
 const routes = [
   {
     path: '/',
@@ -33,6 +34,7 @@ const router = createRouter({
   routes: routes
 });
 router.beforeEach((to) => {
+  const authorities = useUserStore().authorities;
   const hasAccess = !to.meta.access || authorities.includes(to.meta.access as string);
   if (!hasAccess) {
     router.push({ path: `/error/${to.meta.title}` });

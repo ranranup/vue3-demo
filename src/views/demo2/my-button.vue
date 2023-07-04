@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { inject, computed } from 'vue';
 import { type IType } from '@/interface';
-import { myButtonGroupKey } from '@/config/keys';
+import { myButtonGroupKey } from '@/config/injection-keys';
 const props = defineProps<{ type?: IType }>();
 const injectType = inject(myButtonGroupKey);
 const type = computed(() => props.type || injectType?.type || 'primary');
